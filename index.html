@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>John Palicki | Portfolio</title>
+  <meta name="description" content="Portfolio of John (Johnny) Palicki: accessibility-minded developer and special education professional building tools for learning.">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- Set theme and "js" flag before first paint to avoid a flash of the wrong theme. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var theme = null;
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Decorative floating bubbles (Frutiger Aero) -->
+  <div class="bubbles" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="John Palicki, back to top">
+        <span class="brand-orb" aria-hidden="true"></span>
+        <span class="brand-text">J. Palicki</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-toggle-label">Menu</span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-pressed="false">
+        <span aria-hidden="true" class="theme-icon"></span>
+        <span class="theme-label">Dark mode</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Portfolio</p>
+          <h1 id="hero-title">John Palicki</h1>
+          <p class="headline">Accessibility-minded developer building tools that make learning easier to reach.</p>
+          <p class="lead">I work in special education and write code on the side, so I build things for the problems I actually see in classrooms.</p>
+          <a class="btn btn-primary" href="#projects">View my projects</a>
+        </div>
+
+        <!-- Decorative glossy orb. Swap for a real image later if you like. -->
+        <div class="hero-art reveal" aria-hidden="true">
+          <svg viewBox="0 0 240 240" focusable="false">
+            <defs>
+              <radialGradient id="orbBody" cx="35%" cy="30%" r="75%">
+                <stop offset="0" stop-color="#e9fbff"/>
+                <stop offset="0.45" stop-color="#6fd6f7"/>
+                <stop offset="1" stop-color="#1b8fcf"/>
+              </radialGradient>
+              <linearGradient id="orbShine" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity=".9"/>
+                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#b6f06a"/>
+                <stop offset="1" stop-color="#3fae3a"/>
+              </linearGradient>
+            </defs>
+            <circle cx="120" cy="120" r="100" fill="url(#orbBody)"/>
+            <ellipse cx="100" cy="62" rx="58" ry="32" fill="url(#orbShine)"/>
+            <path d="M150 190c-30 6-62-10-70-38 24-4 46 6 58 22 6 7 10 12 12 16z" fill="url(#leaf)" opacity=".92"/>
+            <text x="120" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-size="54" font-weight="700" fill="#06314a">&lt;/&gt;</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <figure class="photo-frame reveal">
+          <!--
+            PLACEHOLDER: replace this SVG with your photo, e.g.
+            <img src="images/john.jpg" alt="John smiling, outdoors" width="320" height="320">
+          -->
+          <svg viewBox="0 0 200 200" role="img" aria-label="Placeholder for a portrait photo of John">
+            <rect width="200" height="200" fill="rgba(255,255,255,.25)"/>
+            <circle cx="100" cy="78" r="34" fill="rgba(6,49,74,.35)"/>
+            <path d="M32 190c8-40 38-58 68-58s60 18 68 58z" fill="rgba(6,49,74,.35)"/>
+          </svg>
+          <figcaption>Photo placeholder</figcaption>
+        </figure>
+
+        <div class="about-copy reveal">
+          <h2 id="about-title">About me</h2>
+          <p>Hi, I'm Johnny. I earned a B.S. in Cognitive Science with a minor in Computer Science from UC San Diego, where I studied interaction design and how people learn and use technology. I'm a developer by hobby and keep learning web development by building small, useful tools.</p>
+          <p>By day I support students in special education with the San Diego County Office of Education. That work shapes how I build: I care about clear interfaces, accessible formats, and software that saves educators time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title" class="reveal">Projects</h2>
+
+        <div class="filters reveal" role="group" aria-label="Filter projects by tag">
+          <button type="button" class="chip-btn" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="chip-btn" data-filter="web" aria-pressed="false">Web</button>
+          <button type="button" class="chip-btn" data-filter="education" aria-pressed="false">Education</button>
+          <button type="button" class="chip-btn" data-filter="academic" aria-pressed="false">Academic</button>
+        </div>
+        <p id="filter-status" class="visually-hidden" role="status" aria-live="polite"></p>
+
+        <ul class="card-grid" id="project-grid">
+          <li class="card reveal" data-tags="web education">
+            <div class="card-thumb" aria-hidden="true"><!-- PLACEHOLDER: swap for a screenshot of Catch Up Planner -->
+              <svg viewBox="0 0 64 64" focusable="false"><rect x="10" y="8" width="44" height="48" rx="8" fill="rgba(255,255,255,.55)"/><path d="M20 24h24M20 34h24M20 44h14" stroke="#06314a" stroke-width="4" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Catch Up Planner</h3>
+            <p>Turns an exported Google Classroom grades CSV into a customizable catch-up plan for any student. I built it to help instructional staff when I served as a special education aide.</p>
+            <ul class="tags" aria-label="Tags">
+              <li>Web</li><li>Education</li><li>CSV</li>
+            </ul>
+            <!-- PLACEHOLDER: replace href with the live project or repository link -->
+            <a class="card-link" href="https://github.com/johnapalicki/" target="_blank" rel="noopener noreferrer">View project<span class="visually-hidden">: Catch Up Planner (opens in a new tab)</span></a>
+          </li>
+
+          <li class="card reveal" data-tags="web">
+            <div class="card-thumb" aria-hidden="true"><!-- PLACEHOLDER: swap for a screenshot of Etch-A-Sketch -->
+              <svg viewBox="0 0 64 64" focusable="false"><rect x="8" y="10" width="48" height="44" rx="8" fill="rgba(255,255,255,.55)"/><path d="M18 40l8-10 8 6 12-14" fill="none" stroke="#06314a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Etch-A-Sketch</h3>
+            <p>A browser-based sketch pad built with HTML, CSS, and JavaScript. Draw on a grid directly in the page.</p>
+            <ul class="tags" aria-label="Tags">
+              <li>Web</li><li>JavaScript</li>
+            </ul>
+            <!-- PLACEHOLDER: replace href and refine the description -->
+            <a class="card-link" href="https://github.com/johnapalicki/" target="_blank" rel="noopener noreferrer">View project<span class="visually-hidden">: Etch-A-Sketch (opens in a new tab)</span></a>
+          </li>
+
+          <li class="card reveal" data-tags="academic">
+            <div class="card-thumb" aria-hidden="true">
+              <svg viewBox="0 0 64 64" focusable="false"><rect x="18" y="8" width="28" height="48" rx="12" fill="rgba(255,255,255,.55)"/><path d="M32 18v16" stroke="#06314a" stroke-width="5" stroke-linecap="round"/><path d="M24 34a8 8 0 0016 0" fill="none" stroke="#06314a" stroke-width="4" stroke-linecap="round"/></svg>
+            </div>
+            <h3>SayIt Assistant</h3>
+            <p>Team project for my Software Engineering course (March to June 2023): a Java application combining voice recognition and AI, with a login system, voice commands, prompt history, and email integration.</p>
+            <ul class="tags" aria-label="Tags">
+              <li>Academic</li><li>Java</li><li>Team project</li>
+            </ul>
+          </li>
+
+          <li class="card reveal" data-tags="academic">
+            <div class="card-thumb" aria-hidden="true">
+              <svg viewBox="0 0 64 64" focusable="false"><rect x="10" y="30" width="10" height="24" rx="3" fill="rgba(255,255,255,.7)"/><rect x="27" y="18" width="10" height="36" rx="3" fill="rgba(255,255,255,.7)"/><rect x="44" y="8" width="10" height="46" rx="3" fill="rgba(255,255,255,.7)"/></svg>
+            </div>
+            <h3>Data Wrangling and Analysis</h3>
+            <p>Group research project for Data Science in Practice (March to June 2023). We used Python to analyze demographic and cultural populations and how geography influences where companies are established.</p>
+            <ul class="tags" aria-label="Tags">
+              <li>Academic</li><li>Python</li><li>Data analysis</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION -->
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="experience-title">Experience &amp; Education</h2>
+          <!-- PLACEHOLDER: add your résumé PDF to this folder as resume.pdf -->
+          <a class="btn btn-secondary" href="resume.pdf" download>Download résumé (PDF)</a>
+        </div>
+
+        <h3 class="timeline-heading">Experience</h3>
+        <ol class="timeline">
+          <li class="timeline-item reveal">
+            <h4>Special Education Aide</h4>
+            <p class="meta">San Diego County Office of Education · 37ECB &amp; Monarch · July 2025 to present</p>
+            <ul>
+              <li>Manage and input complex student service data for a caseload of 50+ students across 3 school sites using the SEIS and Synergy student information systems.</li>
+              <li>Compile specialized student records and files in line with program formats and state-mandated timelines.</li>
+              <li>Coordinate and schedule multi-disciplinary IEP meetings so service providers, administrators, and parents stay aligned with program deadlines.</li>
+              <li>Built internal Google Sheets tracking systems to document service minutes and keep records accurate across locations.</li>
+            </ul>
+          </li>
+
+          <li class="timeline-item reveal">
+            <h4>Special Education Teacher Assistant</h4>
+            <p class="meta">San Diego County Office of Education · Monarch · August 2024 to July 2025</p>
+            <ul>
+              <li>Interpreted and applied individualized education plans (IEPs), making sure instructional accommodations met legal and district compliance standards.</li>
+              <li>Provided one-on-one and small-group support to students with learning, emotional, or physical disabilities.</li>
+              <li>Recorded and analyzed data on service minutes, student progress, behaviors, and achievements.</li>
+            </ul>
+          </li>
+
+          <li class="timeline-item reveal">
+            <h4>Substitute Teacher</h4>
+            <p class="meta">San Diego County Office of Education · Juvenile Court and Community Schools · August 2024 to July 2025</p>
+            <ul>
+              <li>Managed classrooms across diverse age groups and learning levels in a safe, productive environment.</li>
+              <li>Adapted to shifting schedules, limited resources, and student behavioral challenges.</li>
+              <li>Troubleshot technical issues with instructional hardware and software.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h3 class="timeline-heading">Education</h3>
+        <ol class="timeline">
+          <li class="timeline-item reveal">
+            <h4>B.S. Cognitive Science, Minor in Computer Science</h4>
+            <p class="meta">University of California, San Diego · Conferred March 2024</p>
+            <p>Relevant coursework: Interaction Design, Computer Graphics, Teach Computational Thinking, Software Engineering, Data Science in Practice, Web Client Languages, Advanced Data Structures, and Basic Data Structures and Object-Oriented Design.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 id="skills-title" class="reveal">Skills</h2>
+        <div class="skills-grid">
+          <article class="card reveal">
+            <h3>Programming</h3>
+            <ul class="tags" aria-label="Programming skills">
+              <li>Python</li><li>Java</li><li>C++</li><li>C</li><li>HTML</li><li>CSS</li><li>JavaScript</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Design &amp; creative tools</h3>
+            <ul class="tags" aria-label="Design and creative tools">
+              <li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Blender</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Education systems &amp; data</h3>
+            <ul class="tags" aria-label="Education systems and data tools">
+              <li>SEIS</li><li>Synergy</li><li>Google Sheets</li><li>IEP compliance</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Accessibility</h3>
+            <ul class="tags" aria-label="Accessibility skills">
+              <li>PDF remediation</li><li>Captioning</li><li>Alternate formats</li><li>Accessible web design</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-card reveal">
+          <h2 id="contact-title">Let's connect</h2>
+          <p>I'm happy to talk about projects, accessibility, or opportunities in education and technology.</p>
+          <ul class="contact-links">
+            <li><a class="btn btn-primary" href="mailto:johnapalicki@gmail.com">Email me</a></li>
+            <li><a class="btn btn-secondary" href="https://github.com/johnapalicki/" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          </ul>
+          <p class="contact-address">johnapalicki@gmail.com</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year">2026</span> John Palicki. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
